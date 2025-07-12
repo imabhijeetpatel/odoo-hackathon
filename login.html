@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sign up - StackIt</title>
+  <title>Sign In / Register - StackIt</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     body {
@@ -21,90 +21,55 @@
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      position: relative;
     }
-    .login-container h2 {
+    h2 {
+      text-align: center;
       margin-bottom: 20px;
-    }
-    .register-button {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      border: 1px solid #333;
-      background: none;
-      padding: 6px 12px;
-      border-radius: 20px;
-      cursor: pointer;
     }
     label {
       display: block;
-      margin-bottom: 5px;
       margin-top: 15px;
       font-weight: bold;
     }
-    input[type="email"],
-    input[type="password"] {
+    input {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 16px;
+      margin-top: 5px;
     }
-    .checkbox-row {
-      margin-top: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .checkbox-row input[type="checkbox"] {
-      margin-right: 5px;
-    }
-    .checkbox-row label {
-      font-weight: normal;
-      margin: 0;
-    }
-    .checkbox-row a {
-      font-size: 14px;
-      color: #007bff;
-      text-decoration: none;
-    }
-    .checkbox-row a:hover {
-      text-decoration: underline;
-    }
-    .signin-btn {
-      width: 100%;
-      margin-top: 25px;
+    button {
+      width: 48%;
+      margin-top: 20px;
       padding: 12px;
-      background-color: #1a1a1a;
+      background-color: #3b49df;
       color: white;
       font-size: 16px;
       border: none;
-      border-radius: 30px;
+      border-radius: 6px;
       cursor: pointer;
     }
-    .signin-btn:hover {
-      background-color: #000;
+    .btn-row {
+      display: flex;
+      justify-content: space-between;
     }
   </style>
 </head>
 <body>
   <div class="login-container">
-    <button class="register-button" onclick="window.location.href='login.html'">Already a user?</button>
-    <h2>Create your StackIt account</h2>
+    <h2>StackIt Login / Register</h2>
 
-    <label for="email">Email address</label>
+    <label for="email">Email</label>
     <input type="email" id="email" placeholder="Enter your email" />
 
     <label for="password">Password</label>
     <input type="password" id="password" placeholder="Enter your password" />
 
-    <div class="checkbox-row">
-      <label><input type="checkbox" id="staySignedIn" /> Stay signed in</label>
-      <a href="#">Forgot your password?</a>
+    <div class="btn-row">
+      <button onclick="login()">Login</button>
+      <button onclick="register()">Register</button>
     </div>
-
-    <!-- ✅ Call register() instead of login() -->
-    <button class="signin-btn" onclick="register()">Sign up</button>
   </div>
 
   <script type="module" src="app.js"></script>
