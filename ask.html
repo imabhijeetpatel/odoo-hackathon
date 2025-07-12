@@ -2,191 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>StackIt - Home</title>
+  <title>Ask a Question - StackIt</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
       background: #f8f9fc;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      background: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    nav h1 {
-      color: #3b49df;
-    }
-    nav input {
-      width: 300px;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    nav button {
-      padding: 8px 16px;
-      background: #3b49df;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .layout {
-      display: flex;
+      margin: 0;
       padding: 20px;
     }
-
-    .sidebar {
-      width: 200px;
+    .ask-container {
+      max-width: 700px;
+      margin: 0 auto;
       background: white;
-      border-radius: 8px;
-      padding: 15px;
-      margin-right: 20px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     }
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
+    h2 {
+      margin-bottom: 10px;
     }
-    .sidebar li {
+    label {
+      font-weight: bold;
+      margin-top: 20px;
+      display: block;
+    }
+    input[type="text"], textarea {
+      width: 100%;
       padding: 10px;
-      margin: 5px 0;
-      border-radius: 6px;
+      margin-top: 6px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .tag-input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
     }
-    .sidebar li:hover,
-    .sidebar li.active {
-      background: #f0f0f0;
-      font-weight: bold;
+    .submit-btn {
+      background-color: #007bff;
+      color: white;
     }
-
-    .content {
-      flex: 1;
-    }
-
-    .question-card {
-      background: white;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
-    }
-
-    .question-card h3 {
-      margin-top: 0;
-    }
-
-    .tags {
-      margin: 10px 0;
-    }
-
-    .tag {
-      display: inline-block;
-      background-color: #eee;
-      color: #333;
-      border-radius: 6px;
-      padding: 4px 10px;
-      font-size: 13px;
-      margin-right: 5px;
-    }
-
-    .answers-count {
-      float: right;
-      font-size: 14px;
-      color: #666;
-    }
-
-    .meta {
-      font-size: 13px;
-      color: #999;
-      margin-top: 5px;
-    }
-
-    .right-panel {
-      width: 250px;
-      margin-left: 20px;
-    }
-
-    .right-panel h3 {
-      margin-top: 0;
-    }
-
-    .right-panel ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .right-panel li {
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
-
-    .about-section {
-      font-size: 13px;
-      color: #555;
-      margin-top: 20px;
-    }
-
-    .about-section a {
-      color: #3b49df;
-      margin-right: 10px;
-      text-decoration: none;
-    }
-
-    .about-section a:hover {
-      text-decoration: underline;
+    .cancel-btn {
+      background-color: #ccc;
+      color: black;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <h1>StackIt</h1>
-    <input type="text" placeholder="Search questions..." />
-    <button onclick="window.location.href='ask.html'">Search</button>
-  </nav>
+  <div class="ask-container">
+    <h2>Ask a Question</h2>
+    <p>Be specific and provide as much detail as possible to get the best answers.</p>
 
-  <div class="layout">
-    <div class="sidebar">
-      <ul>
-        <li class="active">🏠 Home</li>
-        <li><a href="ask.html" style="text-decoration: none; color: inherit;">❓ Questions</a></li>
-      </ul>
-      <div class="about-section">
-        <a href="#">Help Center</a> · 
-        <a href="#">About</a>
-      </div>
+    <label for="title">Title</label>
+    <input type="text" id="title" placeholder="What's your question? Be specific." />
+
+    <label for="details">Details</label>
+    <textarea id="details" placeholder="Write your question details here..."></textarea>
+    <small>Provide all the details someone would need to answer your question.</small>
+
+    <label for="tags">Tags</label>
+    <div class="tag-input">
+      <input type="text" id="tags" placeholder="Add tags (e.g., react, javascript, node.js)" />
+      <button onclick="addTag()">Add</button>
     </div>
+    <small>Add up to 5 tags to describe what your question is about.</small>
 
-    <div class="content" id="questions-container">
-      <!-- Questions will be rendered here -->
-    </div>
-
-    <div class="right-panel">
-      <h3>Top Questions</h3>
-      <ul>
-        <li>How to optimize React performance with useEffect? <small>(12 answers)</small></li>
-        <li>Proper way to handle errors in async/await? <small>(8 answers)</small></li>
-        <li>Best state management solution for large React apps in 2023? <small>(15 answers)</small></li>
-      </ul>
-
-      <h3>Popular Tags</h3>
-      <div class="tags">
-        <span class="tag" style="background: #e1ecf4; color: #39739d;">javascript</span>
-        <span class="tag" style="background: #fcdede; color: #b52d2d;">react</span>
-        <span class="tag" style="background: #defde0; color: #2e7d32;">node.js</span>
-        <span class="tag" style="background: #f3e8ff; color: #7b1fa2;">typescript</span>
-        <span class="tag" style="background: #fef7e0; color: #c19600;">python</span>
-        <span class="tag" style="background: #e2e8f0; color: #3a3a3a;">vue</span>
-      </div>
-
-      <div class="about-section">
-        <h4>About StackIt</h4>
-        <p>StackIt is a Q&A platform for developers to share knowledge, ask questions, and help each other learn programming.</p>
-      </div>
+    <div class="buttons">
+      <button class="cancel-btn" onclick="window.location.href='index.html'">Cancel</button>
+      <button class="submit-btn" onclick="submitQuestion()">Post Your Question</button>
     </div>
   </div>
 
