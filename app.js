@@ -17,8 +17,6 @@ window.login = function () {
       alert("Login failed: " + error.message);
     });
 };
-
-import { auth } from './firebase-config.js';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 // Redirect to login if user not signed in (for ask.html)
