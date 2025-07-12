@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign in - StackIt</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+    }
+    .register-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      border: 1px solid #333;
+      background: none;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .checkbox-row {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .checkbox-row input[type="checkbox"] {
+      margin-right: 5px;
+    }
+    .checkbox-row label {
+      font-weight: normal;
+      margin: 0;
+    }
+    .checkbox-row a {
+      font-size: 14px;
+      color: #007bff;
+      text-decoration: none;
+    }
+    .checkbox-row a:hover {
+      text-decoration: underline;
+    }
+    .signin-btn {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      background-color: #1a1a1a;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+    .signin-btn:hover {
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <button class="register-button" onclick="window.location.href='register.html'">sign in</button>
+    <h2>Sign up</h2>
+
+    <label for="email">Email address</label>
+    <input type="email" id="email" placeholder="Enter your email" />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password" />
+
+    <div class="checkbox-row">
+      <label><input type="checkbox" id="staySignedIn" /> Stay signed in</label>
+      <a href="#">Forgot your password?</a>
+    </div>
+
+    <button class="signin-btn" onclick="login()">Sign up</button>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
