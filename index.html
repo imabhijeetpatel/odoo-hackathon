@@ -145,8 +145,8 @@
 <body>
   <nav>
     <h1>StackIt</h1>
-    <input type="text" placeholder="Search questions..." />
-    <button onclick="window.location.href='ask.html'">Search</button>
+    <input type="text" id="searchInput" placeholder="Search by tag..." />
+<button onclick="searchQuestions()">Search</button>
 
   </nav>
 
@@ -167,11 +167,10 @@
     </div>
 
     <div class="right-panel">
+  
       <h3>Top Questions</h3>
-      <ul>
-        <li>How to optimize React performance with useEffect? <small>(12 answers)</small></li>
-        <li>Proper way to handle errors in async/await? <small>(8 answers)</small></li>
-        <li>Best state management solution for large React apps in 2023? <small>(15 answers)</small></li>
+      <ul id="questions-list">
+ 
       </ul>
 
       <h3>Popular Tags</h3>
