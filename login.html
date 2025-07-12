@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sign in - StackIt</title>
+  <title>Sign up - StackIt</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     body {
@@ -89,8 +89,8 @@
 </head>
 <body>
   <div class="login-container">
-    <button class="register-button" onclick="window.location.href='register.html'">sign in</button>
-    <h2>Sign up</h2>
+    <button class="register-button" onclick="window.location.href='login.html'">Already a user?</button>
+    <h2>Create your StackIt account</h2>
 
     <label for="email">Email address</label>
     <input type="email" id="email" placeholder="Enter your email" />
@@ -103,7 +103,8 @@
       <a href="#">Forgot your password?</a>
     </div>
 
-    <button class="signin-btn" onclick="login()">Sign up</button>
+    <!-- ✅ Call register() instead of login() -->
+    <button class="signin-btn" onclick="register()">Sign up</button>
   </div>
 
   <script type="module" src="app.js"></script>
